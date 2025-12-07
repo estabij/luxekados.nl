@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeKados | Luxe Relatiegeschenken & Kerstpakketten op Maat</title>
+    <meta name="description" content="LuxeKados - Premium relatiegeschenken en kerstpakketten waarbij de ontvanger zelf kiest. Geen standaard dozen meer. Luxe is persoonlijk.">
+    <meta name="keywords" content="luxe kerstpakketten, relatiegeschenken, personeelsgeschenken, zakelijke gifting, kerstpakket kiezen, premium cadeaus, Nederland">
+    <meta name="author" content="LuxeKados">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luxekados.nl/">
+    <meta property="og:title" content="LuxeKados | Luxe Relatiegeschenken & Kerstpakketten">
+    <meta property="og:description" content="Premium relatiegeschenken waarbij de ontvanger zelf kiest. Geen standaard dozen meer. Luxe is persoonlijk.">
+    <meta property="og:locale" content="nl_NL">
+    
+    <!-- Favicon (simple inline SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #1a2744;
+            --gold: #c9a961;
+            --gold-light: #d4b978;
+            --cream: #faf8f5;
+            --sage: #7d9982;
+            --text: #2d3748;
+            --text-light: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        /* Header */
+        header {
+            background: var(--navy);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--cream);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3a5c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a961' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 em {
+            color: var(--gold);
+            font-style: normal;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(250, 248, 245, 0.8);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+        
+        /* Cards Section */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .card {
+            background: rgba(250, 248, 245, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(201, 169, 97, 0.5);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            color: var(--cream);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .card p {
+            color: rgba(250, 248, 245, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .feature h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--sage) 0%, #6b8a72 100%);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            color: rgba(250, 248, 245, 0.85);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Form */
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 500px) {
+            .signup-form {
+                flex-direction: row;
+            }
+        }
+        
+        .signup-form input[type="email"] {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--cream);
+            color: var(--navy);
+            transition: border-color 0.3s ease;
+        }
+        
+        .signup-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        .signup-form input[type="email"]::placeholder {
+            color: var(--text-light);
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--navy);
+            color: var(--cream);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .btn:hover {
+            background: #243352;
+            transform: translateY(-2px);
+        }
+        
+        .form-note {
+            font-size: 0.85rem;
+            color: rgba(250, 248, 245, 0.7);
+            margin-top: 1rem;
+        }
+        
+        /* Categories Preview */
+        .categories {
+            padding: 5rem 2rem;
+            background: var(--navy);
+        }
+        
+        .categories h2 {
+            text-align: center;
+            color: var(--cream);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 3rem;
+        }
+        
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .tag {
+            background: rgba(250, 248, 245, 0.1);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            color: var(--cream);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background: rgba(201, 169, 97, 0.2);
+            border-color: var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: var(--gold);
+        }
+        
+        .footer-tagline {
+            color: rgba(250, 248, 245, 0.6);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-contact {
+            color: rgba(250, 248, 245, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .footer-contact a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            color: rgba(250, 248, 245, 0.4);
+            font-size: 0.85rem;
+        }
+        
+        /* Success message (hidden by default) */
+        .success-message {
+            display: none;
+            background: rgba(250, 248, 245, 0.15);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.5rem;
+            color: var(--cream);
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .features, .cta, .categories {
+                padding: 4rem 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content > * {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .hero-content > *:nth-child(2) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="/" class="logo">Luxe<span>Kados</span></a>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Binnenkort beschikbaar</div>
+            <h1>Luxe is <em>persoonlijk</em></h1>
+            <p class="hero-subtitle">
+                Premium relatiegeschenken en kerstpakketten waarbij de ontvanger zelf kiest. 
+                Geen standaard dozen meer.
+            </p>
+            
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">🎁</div>
+                    <h3>Wij Kiezen</h3>
+                    <p>Bloemen voor mama, sigaren voor papa, een luxe wijnpakket voor klanten. 
+                       Wij cureren, u geeft, zij genieten.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3>Zij Kiezen</h3>
+                    <p>Geef een keuzekaart, laat de ontvanger zelf beslissen. 
+                       Van Ferrari rijden tot wellness. Eén cadeau, honderd mogelijkheden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Waarom LuxeKados?</h2>
+                <p>Relatiegeschenken die wél gewaardeerd worden</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <div>
+                        <h4>Altijd raak</h4>
+                        <p>Geen gokken meer wat iemand leuk vindt. Laat ze zelf kiezen uit 250+ opties.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⏱️</div>
+                    <div>
+                        <h4>Geen gedoe</h4>
+                        <p>U kiest budget en aantal, wij regelen de rest. Eén factuur, nul klachten.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌿</div>
+                    <div>
+                        <h4>Geen verspilling</h4>
+                        <p>Mensen kiezen wat ze écht willen. Niets belandt ongebruikt in een kast.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎀</div>
+                    <div>
+                        <h4>Prachtige unboxing</h4>
+                        <p>Luxe verpakking met artisan verrassing + persoonlijke keuzekaart.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <div>
+                        <h4>Inzicht voor u</h4>
+                        <p>Volg wie heeft gekozen, wat populair is, en zie anonieme feedback.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🇳🇱</div>
+                    <div>
+                        <h4>Echt Nederlands</h4>
+                        <p>Lokale ervaringen, Nederlandse partners, persoonlijke service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Preview -->
+    <section class="categories">
+        <h2>Kies uit categorieën zoals</h2>
+        <div class="category-tags">
+            <span class="tag">🏎️ Avontuur & Adrenaline</span>
+            <span class="tag">💆 Wellness & Verwennerij</span>
+            <span class="tag">🍷 Culinair & Proeverijen</span>
+            <span class="tag">🎨 Creatief & Leren</span>
+            <span class="tag">👨‍👩‍👧‍👦 Familie & Samen</span>
+            <span class="tag">🎵 Entertainment & Uitjes</span>
+            <span class="tag">🏠 Thuis Genieten</span>
+            <span class="tag">🎁 Luxe Cadeauboxen</span>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta" id="notify">
+        <div class="container">
+            <h2>Wees er als eerste bij</h2>
+            <p>Ontvang bericht zodra LuxeKados live gaat, plus een exclusieve vroegboekkorting.</p>
+            
+            <form class="signup-form" id="signupForm">
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Uw e-mailadres" 
+                    required
+                    autocomplete="email"
+                >
+                <button type="submit" class="btn">Houd mij op de hoogte</button>
+            </form>
+            <p class="form-note">Geen spam, alleen het belangrijke nieuws.</p>
+            
+            <div class="success-message" id="successMessage">
+                ✓ Bedankt! We houden u op de hoogte zodra we live gaan.
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Luxe<span>Kados</span></div>
+        <p class="footer-tagline">"Het cadeau dat altijd past"</p>
+        <p class="footer-contact">
+            Vragen? Mail ons: <a href="mailto:info@luxekados.nl">info@luxekados.nl</a>
+        </p>
+        <p class="footer-bottom">
+            © 2025 LuxeKados.nl | KvK binnenkort | BTW binnenkort
+        </p>
+    </footer>
+    
+    <!-- Simple form handling (shows success message) -->
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get email value
+            const email = this.querySelector('input[type="email"]').value;
+            
+            // In production, you'd send this to your backend or email service
+            // For now, we'll just show the success message
+            console.log('Email submitted:', email);
+            
+            // Hide form, show success
+            this.style.display = 'none';
+            document.querySelector('.form-note').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Optional: Store in localStorage as backup
+            const signups = JSON.parse(localStorage.getItem('luxekados_signups') || '[]');
+            signups.push({ email: email, date: new Date().toISOString() });
+            localStorage.setItem('luxekados_signups', JSON.stringify(signups));
+        });
+    </script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "LuxeKados",
+        "url": "https://luxekados.nl",
+        "description": "Premium relatiegeschenken en kerstpakketten waarbij de ontvanger zelf kiest",
+        "foundingDate": "2025",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Netherlands"
+        },
+        "knowsLanguage": "Dutch",
+        "slogan": "Luxe is persoonlijk"
+    }
+    </script>
+</body>
+</html>
